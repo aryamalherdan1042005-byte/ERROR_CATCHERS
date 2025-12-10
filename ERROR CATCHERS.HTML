@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. تغيير عنوان الصفحة الذي يظهر في شريط المتصفح -->
+    <title> 🔒Error Catchers - Cybersecurity Community</title>
+    
+    <!-- 2. تغيير أيقونة المتصفح (Favicon) إلى رمز الدرع 🛡️ لتمثيل Error Catchers -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    
+    <!-- تضمين Tailwind CSS (هذا ما يعطي الشكل الاحترافي) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- تضمين أيقونات Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- خطوط عربية جميلة ومناسبة للتصميم -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        /* الخلفية الشبكية الإلكترونية للقسم الرئيسي */
+        .cyber-grid {
+            background-color: #0f172a;
+            background-image: linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        /* تأثير التوهج على النص الأزرق */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+        /* شريط تحميل بسيط */
+        .loader {
+            border-top-color: #3b82f6;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- شريط التنقل (Navigation) -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b border-slate-700">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-blue-600 p-2 rounded-lg">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wider">ERROR CATCHERS</h1>
+                    <p class="text-[10px] text-blue-400">We Catch What Others Miss</p>
+                </div>
+            </div>
+            
+            <!-- قائمة سطح المكتب (تعرض نطاق التطبيق الأفقي) -->
+            <div class="hidden md:flex gap-6 text-sm font-medium">
+                <a href="#" class="text-blue-400 hover:text-blue-300 transition">الرئيسية</a>
+                <a href="#courses" class="hover:text-blue-300 transition">الدورات التدريبية</a>
+                <a href="#labs" class="hover:text-blue-300 transition">المختبرات الافتراضية</a>
+                <a href="#team" class="hover:text-blue-300 transition">فريقنا</a>
+                <a href="#" class="hover:text-blue-300 transition">المجتمع</a>
+            </div>
+
+            <div class="flex gap-3">
+                <button class="hidden md:block px-4 py-2 text-sm text-slate-300 hover:text-white">تسجيل دخول</button>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-bold transition shadow-md shadow-blue-900/50">
+                    ابدأ التعلم مجاناً
+                </button>
+                <button class="md:hidden p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي (Hero Section) -->
+    <header class="cyber-grid relative min-h-[500px] flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 py-20">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-900/50 border border-blue-500/30 text-blue-300 text-xs font-semibold mb-4 backdrop-blur-sm">
+                مجتمع جديد لطلاب الأمن السيبراني
+            </span>
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                حول معرفتك النظرية إلى <br>
+                <span class="text-blue-500 glow-text">مهارات اختراق ودفاع حقيقية</span>
+            </h2>
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                منصة Error Catchers هي وجهتك الأولى لسد الفجوة بين الدراسة الجامعية وسوق العمل. مختبرات افتراضية، مسارات عملية، وشهادات مهنية.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-bold text-lg transition flex items-center justify-center gap-2">
+                    <i data-lucide="terminal"></i>
+                    جرب المختبرات الآن
+                </button>
+                <button class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 px-8 py-3 rounded-lg font-bold text-lg transition">
+                    استكشف المسارات
+                </button>
+            </div>
+            
+            <!-- مؤشرات الثقة -->
+            <div class="mt-12 flex justify-center gap-8 text-slate-400 text-sm font-medium">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="users" class="w-4 h-4 text-blue-500"></i>
+                    <span>مجتمع تفاعلي</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="award" class="w-4 h-4 text-blue-500"></i>
+                    <span>محتوى أكاديمي موثوق</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="lock" class="w-4 h-4 text-blue-500"></i>
+                    <span>بيئة تدريب آمنة</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم المشكلة والحل (Problem & Solution) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">لماذا Error Catchers؟</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        هل تعتقد أن الشهادة الجامعية وحدها كافية لصد هجمة سيبرانية حقيقية؟ ذكرت التقارير العالمية وجود فجوة "حرجة" في المهارات العملية للخريجين. نحن هنا لحل هذه المشكلة.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-red-100 p-1 rounded">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">المشكلة: الفجوة المهارية</h4>
+                                <p class="text-sm text-slate-500">الاعتماد على النظريات فقط دون تطبيق عملي حقيقي.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">الحل: مختبرات افتراضية (Virtual Labs)</h4>
+                                <p class="text-sm text-slate-500">بيئة آمنة لمحاكاة الهجمات والدفاع بشكل قانوني وعملي.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- أيقونات الحلول -->
+                <div class="bg-slate-100 p-8 rounded-2xl border border-slate-200">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <i data-lucide="server" class="w-10 h-10 text-blue-600 mx-auto mb-3"></i>
+                            <h4 class="font-bold text-sm">مختبرات سحابية</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <i data-lucide="book-open" class="w-10 h-10 text-purple-600 mx-auto mb-3"></i>
+                            <h4 class="font-bold text-sm">محتوى عربي</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <i data-lucide="briefcase" class="w-10 h-10 text-green-600 mx-auto mb-3"></i>
+                            <h4 class="font-bold text-sm">تأهيل وظيفي</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <i data-lucide="shield" class="w-10 h-10 text-red-600 mx-auto mb-3"></i>
+                            <h4 class="font-bold text-sm">محاكاة هجمات</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المسارات التعليمية (Courses Section) -->
+    <section id="courses" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">المسارات التعليمية الأكثر طلباً</h2>
+                    <p class="text-slate-500 mt-2">اختر المسار الذي يناسب شغفك وابدأ رحلة الاحتراف</p>
+                </div>
+                <a href="#" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
+                    عرض الكل <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- بطاقة الدورة 1: Kali Linux -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-slate-100 group">
+                    <div class="h-40 bg-slate-900 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-blue-900/10 transition"></div>
+                        <i data-lucide="terminal" class="w-16 h-16 text-white opacity-80"></i>
+                        <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs px-2 py-1 rounded" data-course="kali-linux">مبتدئ</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">أساسيات Kali Linux</h3>
+                        <p class="text-sm text-slate-500 mb-4 line-clamp-2">تعلم كيفية استخدام نظام كالي لينكس، التوزيعة الأشهر في مجال اختبار الاختراق.</p>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
+                            <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <i data-lucide="clock" class="w-4 h-4"></i> 12 ساعة
+                            </div>
+                            <button onclick="openGeneratorModal('أساسيات Kali Linux', 'مبتدئ')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm font-bold transition flex items-center gap-1">
+                                مسار إضافي ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة الدورة 2: Network Security -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-slate-100 group">
+                    <div class="h-40 bg-slate-800 flex items-center justify-center relative">
+                         <div class="absolute inset-0 bg-purple-900/20 group-hover:bg-purple-900/10 transition"></div>
+                        <i data-lucide="globe" class="w-16 h-16 text-white opacity-80"></i>
+                        <span class="absolute top-3 right-3 bg-purple-600 text-white text-xs px-2 py-1 rounded" data-course="network-security">متوسط</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">أمن الشبكات (Network Security)</h3>
+                        <p class="text-sm text-slate-500 mb-4 line-clamp-2">فهم البروتوكولات وتحليل حركة المرور وكيفية تأمين البنية التحتية للشبكات.</p>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
+                             <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <i data-lucide="clock" class="w-4 h-4"></i> 20 ساعة
+                            </div>
+                            <button onclick="openGeneratorModal('أمن الشبكات (Network Security)', 'متوسط')" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm font-bold transition flex items-center gap-1">
+                                مسار إضافي ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة الدورة 3: Ethical Hacking -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-slate-100 group">
+                    <div class="h-40 bg-slate-900 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-green-900/20 group-hover:bg-green-900/10 transition"></div>
+                        <i data-lucide="code-2" class="w-16 h-16 text-white opacity-80"></i>
+                        <span class="absolute top-3 right-3 bg-green-600 text-white text-xs px-2 py-1 rounded" data-course="ethical-hacking">متقدم</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">القرصنة الأخلاقية (Ethical Hacking)</h3>
+                        <p class="text-sm text-slate-500 mb-4 line-clamp-2">دورة شاملة في منهجيات اختبار الاختراق وكتابة التقارير الأمنية.</p>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
+                             <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <i data-lucide="clock" class="w-4 h-4"></i> 40 ساعة
+                            </div>
+                            <button onclick="openGeneratorModal('القرصنة الأخلاقية (Ethical Hacking)', 'متقدم')" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-bold transition flex items-center gap-1">
+                                مسار إضافي ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for LLM Generator -->
+    <div id="generatorModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 max-w-xl w-full shadow-2xl">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-yellow-500"></i>
+                    مولد المسارات الإضافية
+                </h3>
+                <button onclick="closeGeneratorModal()" class="text-slate-500 hover:text-slate-800">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <p class="text-slate-600 mb-4">
+                سنقوم بتوليد مهام عملية متقدمة ومسار تعليمي إضافي مخصص للدورة التالية:
+                <span id="modalCourseTitle" class="font-bold text-blue-600 block mt-2"></span>
+            </p>
+            
+            <div class="mb-4">
+                <label for="userGoal" class="block text-sm font-medium text-slate-700 mb-1">حدد هدفك من هذا المسار الإضافي:</label>
+                <textarea id="userGoal" rows="3" class="w-full border border-slate-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500 text-sm" placeholder="مثال: أريد التركيز على الثغرات المتعلقة بالـ Buffer Overflow في نظام Kali."></textarea>
+            </div>
+
+            <button onclick="generateCustomTasks()" id="generateButton" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold transition flex items-center justify-center gap-2">
+                <i data-lucide="zap" id="generateIcon" class="w-5 h-5"></i>
+                <span>توليد المسار المخصص</span>
+            </button>
+            
+            <!-- منطقة النتائج -->
+            <div id="resultsContainer" class="mt-6 p-4 bg-slate-100 rounded-lg border border-slate-200 hidden">
+                <h4 class="font-bold text-lg mb-2 text-slate-800 flex items-center gap-2">
+                    <i data-lucide="list-checks" class="w-5 h-5 text-green-600"></i>
+                    المهام المقترحة من Gemini:
+                </h4>
+                <div id="llmOutput" class="text-sm text-slate-700 whitespace-pre-wrap"></div>
+                <!-- لوحة رسائل الخطأ -->
+                <div id="errorAlert" class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden text-sm">
+                    حدث خطأ أثناء الاتصال بالخادم. يرجى المحاولة مرة أخرى.
+                </div>
+            </div>
+
+            <!-- لوحة التحميل -->
+            <div id="loadingIndicator" class="mt-6 text-center hidden">
+                <div class="loader ease-linear rounded-full border-4 border-t-4 border-slate-200 h-8 w-8 mx-auto mb-2"></div>
+                <p class="text-blue-600 font-medium">النموذج يحلل طلبك... يرجى الانتظار.</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- قسم فريق العمل (Team Section) -->
+    <section id="team" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12">فريق العمل المتميز</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- العضو 1: مالك (القائد) -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mb-3 overflow-hidden">
+                        <img src="https://placehold.co/150x150/e2e8f0/0f172a?text=M.A" alt="Avatar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition">
+                    </div>
+                    <h4 class="font-bold text-sm">مالك أحمد الزين</h4>
+                    <span class="text-xs text-blue-600 font-medium">القائد</span>
+                </div>
+                
+                <!-- العضو 2: أريام (جديد) -->
+                 <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mb-3 overflow-hidden">
+                         <img src="https://placehold.co/150x150/e2e8f0/0f172a?text=A.H" alt="Avatar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition">
+                    </div>
+                    <h4 class="font-bold text-sm">أريام هيثم الحردان</h4>
+                    <span class="text-xs text-slate-500">عضو فريق</span>
+                </div>
+                
+                <!-- العضو 3: سدين (جديد) -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mb-3 overflow-hidden">
+                         <img src="https://placehold.co/150x150/e2e8f0/0f172a?text=S.N" alt="Avatar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition">
+                    </div>
+                    <h4 class="font-bold text-sm">سدين نعيم نبابته</h4>
+                    <span class="text-xs text-slate-500">عضو فريق</span>
+                </div>
+
+                <!-- العضو 4: لين (جديد) -->
+                 <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mb-3 overflow-hidden">
+                         <img src="https://placehold.co/150x150/e2e8f0/0f172a?text=L.S" alt="Avatar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition">
+                    </div>
+                    <h4 class="font-bold text-sm">لين سلام الناصر</h4>
+                    <span class="text-xs text-slate-500">عضو فريق</span>
+                </div>
+                
+                <!-- العضو 5: دانة (جديد) -->
+                 <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mb-3 overflow-hidden">
+                         <img src="https://placehold.co/150x150/e2e8f0/0f172a?text=D.M" alt="Avatar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition">
+                    </div>
+                    <h4 class="font-bold text-sm">دانة مأمون الساكت</h4>
+                    <span class="text-xs text-slate-500">عضو فريق</span>
+                </div>
+                
+                <!-- العضو 6: رند (جديد) -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mb-3 overflow-hidden">
+                         <img src="https://placehold.co/150x150/e2e8f0/0f172a?text=R.A" alt="Avatar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition">
+                    </div>
+                    <h4 class="font-bold text-sm">رند عبد الرحيم</h4>
+                    <span class="text-xs text-slate-500">عضو فريق</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- التذييل (Footer) -->
+    <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800">
+        <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 mb-4 text-white">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    <h3 class="font-bold text-lg">ERROR CATCHERS</h3>
+                </div>
+                <p class="text-sm max-w-sm mb-4" id="missionStatement">
+                    نحن نمكن الجيل القادم من خبراء الأمن السيبراني من خلال التعليم العملي والممارسة الحقيقية. انضم إلينا اليوم لحماية مستقبلنا الرقمي.
+                </p>
+                <div class="flex gap-4 mb-4">
+                    <a href="#" class="hover:text-white transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-white transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-white transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                </div>
+                <!-- ميزة ملخص المحتوى الصوتي (TTS) -->
+                <button onclick="generateAudioSummary()" id="audioButton" class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                    <span id="audioButtonText">ملخص صوتي لمهمتنا</span>
+                </button>
+                <audio id="audioPlayer" controls class="mt-2 w-full hidden"></audio>
+                <div id="audioError" class="mt-2 p-2 bg-red-100 text-red-700 rounded-lg hidden text-xs"></div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">روابط سريعة</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">عن المنصة</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">المسارات التعليمية</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">الأسئلة الشائعة</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">تواصل معنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">اشترك بالنشرة</h4>
+                <form class="flex flex-col gap-2">
+                    <input type="email" placeholder="بريدك الإلكتروني" class="bg-slate-800 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-bold transition">اشتراك</button>
+                </form>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-center text-xs">
+            &copy; 2025 Error Catchers. جميع الحقوق محفوظة. - شعبة 30
+        </div>
+    </footer>
+
+    <script>
+        // تهيئة الأيقونات
+        lucide.createIcons();
+        
+        // متغيرات الحالة العامة للـ Modal
+        let currentCourse = '';
+        let currentLevel = '';
+        const API_URL_GEMINI = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=";
+        const API_URL_TTS = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=";
+        const API_KEY = ""; // سيتم توفيره في بيئة التنفيذ
+
+        // دوال التحكم في الـ Modal
+        function openGeneratorModal(courseTitle, level) {
+            currentCourse = courseTitle;
+            currentLevel = level;
+            document.getElementById('modalCourseTitle').textContent = `${courseTitle} (المستوى: ${level})`;
+            document.getElementById('generatorModal').classList.remove('hidden');
+            document.getElementById('generatorModal').classList.add('flex');
+            // إخفاء النتائج والخطأ في كل مرة يفتح فيها المودال
+            document.getElementById('resultsContainer').classList.add('hidden');
+            document.getElementById('errorAlert').classList.add('hidden');
+            document.getElementById('llmOutput').textContent = '';
+            document.getElementById('userGoal').value = '';
+            document.getElementById('generateButton').disabled = false;
+        }
+
+        function closeGeneratorModal() {
+            document.getElementById('generatorModal').classList.add('hidden');
+            document.getElementById('generatorModal').classList.remove('flex');
+        }
+
+        // ************************************************************
+        // دوال مساعدة لتحويل البيانات الصوتية PCM إلى WAV
+        // ************************************************************
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        /**
+         * تحويل مصفوفة PCM Int16 إلى تنسيق ملف WAV Blob.
+         * @param {Int16Array} pcm16Data - بيانات PCM 16 بت.
+         * @param {number} sampleRate - معدل العينة.
+         * @returns {Blob} ملف WAV.
+         */
+        function pcmToWav(pcm16Data, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcm16Data.byteLength);
+            const view = new DataView(buffer);
+            const writeString = (view, offset, string) => {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            };
+            const byteRate = sampleRate * 2; // 16-bit, 1 channel
+            const blockAlign = 2; // 16-bit
+
+            // RIFF chunk descriptor
+            writeString(view, 0, 'RIFF'); // ChunkID
+            view.setUint32(4, 36 + pcm16Data.byteLength, true); // ChunkSize
+            writeString(view, 8, 'WAVE'); // Format
+
+            // FMT sub-chunk
+            writeString(view, 12, 'fmt '); // Subchunk1ID
+            view.setUint32(16, 16, true); // Subchunk1Size (16 for PCM)
+            view.setUint16(20, 1, true); // AudioFormat (1 for PCM)
+            view.setUint16(22, 1, true); // NumChannels (Mono)
+            view.setUint32(24, sampleRate, true); // SampleRate
+            view.setUint32(28, byteRate, true); // ByteRate
+            view.setUint16(32, blockAlign, true); // BlockAlign
+            view.setUint16(34, 16, true); // BitsPerSample (16-bit)
+
+            // DATA sub-chunk
+            writeString(view, 36, 'data'); // Subchunk2ID
+            view.setUint32(40, pcm16Data.byteLength, true); // Subchunk2Size
+
+            // Write the PCM data
+            let offset = 44;
+            for (let i = 0; i < pcm16Data.length; i++, offset += 2) {
+                view.setInt16(offset, pcm16Data[i], true);
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+
+        // ************************************************************
+        // دالة توليد مسارات إضافية (LLM)
+        // ************************************************************
+        async function generateCustomTasks() {
+            const userGoal = document.getElementById('userGoal').value.trim();
+            
+            // تحقق من وجود المدخلات
+            if (!userGoal) {
+                document.getElementById('errorAlert').textContent = 'الرجاء إدخال هدفك من المسار الإضافي.';
+                document.getElementById('errorAlert').classList.remove('hidden');
+                return;
+            }
+
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const llmOutput = document.getElementById('llmOutput');
+            const errorAlert = document.getElementById('errorAlert');
+            const generateButton = document.getElementById('generateButton');
+
+            // إعداد واجهة المستخدم لحالة التحميل
+            resultsContainer.classList.add('hidden');
+            errorAlert.classList.add('hidden');
+            loadingIndicator.classList.remove('hidden');
+            generateButton.disabled = true;
+
+            const systemPrompt = `أنت خبير في تطوير المناهج والأمن السيبراني. مهمتك هي إنشاء 5 مهام عملية (Lab Tasks) أو مسار تعليمي إضافي، يتجاوز مستوى الدورة الأساسية، لتعزيز مهارات الطالب بناءً على الدورة والهدف المحدد. يجب أن تكون الإجابة باللغة العربية وموجهة للمتدرب مباشرة، مع تنسيق المهام كقائمة مرقمة بتفاصيل واضحة. استخدم علامات Markdown للتنسيق.`;
+            const userQuery = `الدورة الأساسية: ${currentCourse}، المستوى الحالي: ${currentLevel}. الهدف الإضافي الذي حدده الطالب هو: "${userGoal}". الرجاء توليد مسار من 5 مهام عملية متقدمة ومترابطة لتلبية هذا الهدف.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            // تنفيذ الاستدعاء مع محاولة إعادة المحاولة (Exponential Backoff)
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const response = await fetch(API_URL_GEMINI + API_KEY, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                    if (text) {
+                        // إزالة أي علامات Markdown قد تكون أضيفت بواسطة النموذج والتي قد لا تظهر بشكل جيد داخل innerText
+                        const formattedText = text.replace(/#/g, '').replace(/\*\*/g, '').replace(/(\r\n|\n|\r)/gm, '\n');
+                        llmOutput.innerHTML = formattedText.split('\n').map(line => 
+                            line.trim().startsWith('*') || line.trim().match(/^\d+\./) 
+                            ? `<p class="my-2 flex"><i data-lucide="chevrons-left" class="w-4 h-4 text-blue-600 ml-2 mt-1"></i> <span>${line.trim().replace(/^\*/, '').trim()}</span></p>`
+                            : `<p class="mt-2 font-semibold text-slate-900">${line}</p>`
+                        ).join('');
+                        lucide.createIcons(); // لتحديث الأيقونات الجديدة
+                        resultsContainer.classList.remove('hidden');
+                        break; // الخروج من حلقة المحاولات
+                    } else {
+                        throw new Error("No text content received from API.");
+                    }
+                } catch (error) {
+                    console.error("Attempt failed:", i, error);
+                    if (i === 2) {
+                        errorAlert.textContent = 'فشلت عملية توليد المسار بعد عدة محاولات. يرجى التأكد من اتصالك بالإنترنت والمحاولة مرة أخرى.';
+                        errorAlert.classList.remove('hidden');
+                    }
+                    await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
+                }
+            }
+            
+            // إعادة واجهة المستخدم لحالتها الأصلية
+            loadingIndicator.classList.add('hidden');
+            generateButton.disabled = false;
+        }
+
+        // ************************************************************
+        // دالة توليد الملخص الصوتي (TTS)
+        // ************************************************************
+        async function generateAudioSummary() {
+            const audioButton = document.getElementById('audioButton');
+            const audioButtonText = document.getElementById('audioButtonText');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioError = document.getElementById('audioError');
+            const missionStatement = document.getElementById('missionStatement').textContent.trim();
+            const voiceName = "Kore"; // صوت عربي واضح ومناسب
+
+            // إعداد واجهة المستخدم لحالة التحميل
+            audioButton.disabled = true;
+            audioButtonText.textContent = 'جاري التوليد...';
+            audioPlayer.classList.add('hidden');
+            audioError.classList.add('hidden');
+            
+            // النص الذي سيتم تحويله إلى صوت
+            const prompt = `بصوت رسمي ومؤثر، قل ملخص مهمة منصة Error Catchers: "${missionStatement}"`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: voiceName }
+                        }
+                    }
+                },
+            };
+
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const response = await fetch(API_URL_TTS + API_KEY, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+                    const part = candidate?.content?.parts?.[0];
+                    const audioData = part?.inlineData?.data;
+                    const mimeType = part?.inlineData?.mimeType;
+
+                    if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                        // استخراج معدل العينة من المايم تايب
+                        const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                        const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 16000; // الافتراضي 16000
+
+                        // تحويل base64 إلى ArrayBuffer
+                        const pcmData = base64ToArrayBuffer(audioData);
+                        // API returns signed PCM16 audio data.
+                        const pcm16 = new Int16Array(pcmData);
+                        
+                        // تحويل PCM إلى WAV Blob
+                        const wavBlob = pcmToWav(pcm16, sampleRate);
+                        const audioUrl = URL.createObjectURL(wavBlob);
+                        
+                        // تحديث مشغل الصوت
+                        audioPlayer.src = audioUrl;
+                        audioPlayer.classList.remove('hidden');
+                        break; // الخروج من حلقة المحاولات
+                    } else {
+                         throw new Error("Invalid audio data received.");
+                    }
+                } catch (error) {
+                    console.error("TTS attempt failed:", i, error);
+                    if (i === 2) {
+                        audioError.textContent = 'فشل توليد الصوت. يرجى التأكد من اتصالك والمحاولة لاحقًا.';
+                        audioError.classList.remove('hidden');
+                    }
+                    await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
+                }
+            }
+            
+            // إعادة واجهة المستخدم لحالتها الأصلية
+            audioButton.disabled = false;
+            audioButtonText.textContent = 'ملخص صوتي لمهمتنا✨';
+        }
+    </script>
+</body>
+</html>
